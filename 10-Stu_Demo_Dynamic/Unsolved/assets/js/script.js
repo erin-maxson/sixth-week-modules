@@ -12,6 +12,10 @@ function getApi() {
       // Use the console to examine the response
       console.log(data);
       // TODO: Loop through the data and generate your HTML
-    });
+      for (var i = 0; i < data.length; i++) {
+        console.log(data[i].user.html_url);
+        console.log(data[i].user.login);
+
+    }});
 }
 fetchButton.addEventListener('click', getApi);
