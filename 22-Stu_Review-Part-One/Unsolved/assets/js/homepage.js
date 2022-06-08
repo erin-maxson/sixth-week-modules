@@ -21,11 +21,11 @@ var formSubmitHandler = function (event) {
 
 var buttonClickHandler = function (event) {
   // What is `event.target` referencing?
-  // TODO: Write your answer here
+  // This event is pulling the attribute "data-language" on the HTML (Ex: JavaScript, HTML, CSS) and using it to show featured repos that correlate in the repo area (see the if statement below)
   var language = event.target.getAttribute('data-language');
 
   // Why is this `if` block in place?
-  // TODO: Write your answer here
+  // If the language is selected, the featured repos will show based on the language selected and will be shown on the page in the repo area of the HTML
   if (language) {
     getFeaturedRepos(language);
 
@@ -55,7 +55,7 @@ var getUserRepos = function (user) {
 
 var getFeaturedRepos = function (language) {
   // What are the query parameters doing here?
-  // TODO: Write your answer here
+  // Filtering the data based on the language that are listed as featured on the repo page sorted by repos that are open with "Help wanted" on them
   var apiUrl = 'https://api.github.com/search/repositories?q=' + language + '+is:featured&sort=help-wanted-issues';
 
   fetch(apiUrl).then(function (response) {
@@ -73,7 +73,7 @@ var displayRepos = function (repos, searchTerm) {
   if (repos.length === 0) {
     repoContainerEl.textContent = 'No repositories found.';
     // What would happen if there was no `return;` here?
-    // TODO: Write your answer here
+    // It would not return the "No repositories found" string
     return;
   }
 
@@ -81,7 +81,7 @@ var displayRepos = function (repos, searchTerm) {
 
   for (var i = 0; i < repos.length; i++) {
     // What is the result of this string concatenation?
-    // TODO: Write your answer here
+    // It adds the repo owner name with a / and the repo name to one line (making up a end URL)
     var repoName = repos[i].owner.login + '/' + repos[i].name;
 
     var repoEl = document.createElement('div');

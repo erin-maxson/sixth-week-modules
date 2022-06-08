@@ -16,6 +16,7 @@
   <header class="hero">
     <h1 class="app-title">
       <!-- TODO: What does this `<i>` element do? Where do these classes come from? -->
+        <!-- This class comes from the innerHTML in the JavaScript file. -->
       <i class="fab fa-github"></i> Git it Done!
     </h1>
     <p>Search for a GitHub user or click on a language to see a list of repositories and how many open issues they have!
@@ -39,6 +40,7 @@
         <h3 class="card-header text-uppercase">Search By Topic</h3>
         <div id="language-buttons" class="card-body">
           <!-- TODO: How are the `data-language` attributes being used? -->
+          <!-- They are being used to differentiate the languages used in the repos when data is selected -->
           <button data-language="javascript" class="btn">JavaScript</button>
           <button data-language="html" class="btn">HTML</button>
           <button data-language="css" class="btn">CSS</button>
@@ -49,6 +51,7 @@
     <div class="col-12 col-md-8">
       <h2 class="subtitle">Showing Repositories for: <span id="repo-search-term"></span></h2>
       <!-- TODO: Why is this `<div>` empty? What goes in here? -->
+        <!-- The data that we want to append related to repo end URLs -->
       <div id="repos-container" class="list-group"></div>
     </div>
   </main>
