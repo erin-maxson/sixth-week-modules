@@ -4,7 +4,7 @@ var limitWarningEl = document.querySelector('#limit-warning');
 
 var getRepoName = function () {
   // Where is this value coming from?
-  // TODO: Write your answer here
+  // It's coming from the span for repo names where repo names are dynamically added
   var queryString = document.location.search;
   var repoName = queryString.split('=')[1];
 
@@ -14,7 +14,7 @@ var getRepoName = function () {
     getRepoIssues(repoName);
   } else {
     // Under what condition will this run?
-    // TODO: Write your answer here
+    // if the repo name cannot be retrieved, it will take you back to the homepage
     document.location.replace('./index.html');
   }
 };
@@ -28,7 +28,7 @@ var getRepoIssues = function (repo) {
         displayIssues(data);
 
         // What is this checking for? Under what condition will this be `true`?
-        // TODO: Write your answer here
+        // If the response HTTP header gets a link, it should display the warning 
         if (response.headers.get('Link')) {
           displayWarning(repo);
         }
@@ -72,7 +72,7 @@ var displayIssues = function (issues) {
 };
 
 // What does this function do?
-// TODO: Write your answer here
+// This will display a warning message that says "To see more than 30 issues, visit GitHub.com" with a link that says https://github.comrepo/issues/
 var displayWarning = function (repo) {
   limitWarningEl.textContent = 'To see more than 30 issues, visit ';
 
@@ -82,7 +82,7 @@ var displayWarning = function (repo) {
   linkEl.setAttribute('target', '_blank');
 
   // Where does this appear on the page?
-  // TODO: Write your answer here
+  // This appends to the limit warning class (dynamic div) on the html
   limitWarningEl.appendChild(linkEl);
 };
 
